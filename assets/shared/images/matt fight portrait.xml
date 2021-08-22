@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="matt_portrait.png">
+	<!-- Created with Adobe Animate version 21.0.4.39603 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="matt_portrait_animated0000" x="0" y="0" width="211" height="257" pivotX="375.55" pivotY="1386.6"/>
+	<SubTexture name="matt_portrait_animated0001" x="0" y="0" width="211" height="257"/>
+	<SubTexture name="matt_portrait_animated0002" x="211" y="0" width="211" height="256" frameX="0" frameY="-1" frameWidth="211" frameHeight="257"/>
+	<SubTexture name="matt_portrait_animated0003" x="211" y="0" width="211" height="256" frameX="0" frameY="-1" frameWidth="211" frameHeight="257"/>
+	<SubTexture name="matt_portrait_animated0004" x="0" y="257" width="211" height="250" frameX="0" frameY="-7" frameWidth="211" frameHeight="257"/>
+	<SubTexture name="matt_portrait_animated0005" x="0" y="257" width="211" height="250" frameX="0" frameY="-7" frameWidth="211" frameHeight="257"/>
+</TextureAtlas>
