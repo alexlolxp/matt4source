@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="volcanoanimated.png">
+	<!-- Created with Adobe Animate version 21.0.8.42666 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BUBBLE 0000" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0001" x="2560" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0002" x="5120" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0003" x="0" y="1400" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0004" x="2560" y="1400" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0005" x="5120" y="1400" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0006" x="0" y="2800" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0007" x="2560" y="2800" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0008" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0009" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0010" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0011" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0012" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0013" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0014" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0015" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0016" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0017" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0018" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0019" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0020" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0021" x="0" y="0" width="2560" height="1400"/>
+	<SubTexture name="BUBBLE 0022" x="0" y="0" width="2560" height="1400"/>
+</TextureAtlas>

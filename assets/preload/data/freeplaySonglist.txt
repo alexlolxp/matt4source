@@ -10,7 +10,9 @@ deathmatch:mattchill:7
 king-hit:mattchill:7
 tko:matttko:7
 king-hit-fefe:mart:7
-en-garde:mattfight:10
-swordfight:mattfight:10
-combat:matthurt:10
-final-showdown:matthurt:10
+war-of-honour:mattfight:11
+opponent:mattfight:11
+combat:mattfight:11
+endless-battle:mattfight:11
+champion:mattfight:11
+purgatory:mattfight:11

@@ -47,6 +47,9 @@ class DialogueBox extends FlxSpriteGroup
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'war-of-honour' | 'combat' | 'opponent' | 'endless-battle':
+							FlxG.sound.playMusic(Paths.music('swordplay'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
@@ -161,9 +164,50 @@ class DialogueBox extends FlxSpriteGroup
 				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
 				face.setGraphicSize(Std.int(face.width * 6));
 				add(face);
-
 			case 'en-garde':
 				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'war-of-honour':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'opponent':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'combat':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'endless-battle':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'champion':
+				hasDialog = false;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+			case 'purgatory':
+				hasDialog = false;
 				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
 				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
 				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
@@ -193,6 +237,14 @@ class DialogueBox extends FlxSpriteGroup
 				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
 				box.y = FlxG.height - box.height + 50;
 				box.x = box.x - 20;
+			default:
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
+				box.animation.addByPrefix('normalOpen', 'Speech Bubble Normal Open', 24, false);
+				box.animation.addByIndices('normal', 'speech bubble normal', [4], "", 24);
+				box.y = FlxG.height - box.height + 50;
+				box.x = box.x - 20;
+
 		}
 
 		this.dialogueList = dialogueList;
@@ -281,7 +333,7 @@ class DialogueBox extends FlxSpriteGroup
 			add(portraitRight);
 			portraitRight.visible = false;
 		}
-		if (PlayState.SONG.song.toLowerCase() =='en-garde' || PlayState.SONG.song.toLowerCase()=='swordfight') 
+		if (PlayState.SONG.song.toLowerCase() =='en-garde' || PlayState.SONG.song.toLowerCase()=='swordfight' || PlayState.SONG.song.toLowerCase()=='war-of-honour' || PlayState.SONG.song.toLowerCase()=='opponent' || PlayState.SONG.song.toLowerCase()=='endless-battle') 
 		{
 			portraitLeft = new FlxSprite(160,150);
 			portraitLeft.frames = Paths.getSparrowAtlas('matt fight portrait');
@@ -431,7 +483,7 @@ class DialogueBox extends FlxSpriteGroup
 				{
 					isEnding = true;
 
-					if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'thorns')
+					if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'thorns' || PlayState.SONG.song.toLowerCase() == 'war-of-honour' || PlayState.SONG.song.toLowerCase() == 'opponent' || PlayState.SONG.song.toLowerCase() == 'combat' || PlayState.SONG.song.toLowerCase() == 'endless-battle')
 						FlxG.sound.music.fadeOut(2.2, 0);
 
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)

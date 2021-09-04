@@ -13,8 +13,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 
-#if desktop
-/*import Discord.DiscordClient;*/
+#if windows
+import Discord.DiscordClient;
 #end
 
 using StringTools;
@@ -28,7 +28,7 @@ class StoryMenuState extends MusicBeatState
 		['Light-It-Up','Ruckus','Target-Practice'],
 		['Sporting','Boxing-Match'],
 		['Fisticuffs','Wind-Up','Deathmatch','king-hit'],
-		['En-garde','Swordfight','Combat','Final-showdown']
+		['War-of-honour','Opponent','Combat','Endless-battle']
 	];
 
 	var curDifficulty:Int = 1;
@@ -48,8 +48,9 @@ class StoryMenuState extends MusicBeatState
 		"Matt's tuesday singing lessons",
 		"Matt is done wiith your shit",
 		"The true Finale",
-		"The Art of War"
+		"The true Art of War"
 	];
+
 
 	var txtWeekTitle:FlxText;
 
@@ -69,9 +70,9 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
-		#if desktop
+		#if windows
 		// Updating Discord Rich Presence
-		/*DiscordClient.changePresence("In the Menus", null);*/
+		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -161,7 +162,6 @@ class StoryMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
-		sprDifficulty.animation.addByPrefix('old', 'OLD');
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
 
@@ -221,20 +221,11 @@ class StoryMenuState extends MusicBeatState
 				if (controls.UP_P)
 				{
 					changeWeek(-1);
-					if (curWeek < 1 && curDifficulty == 3)
-						{
-							changeDifficulty(-1);
-						}
-						
 				}
 
 				if (controls.DOWN_P)
 				{
 					changeWeek(1);
-					if (curWeek > 1 && curDifficulty == 3)
-						{
-							changeDifficulty(-1);
-						}
 				}
 
 				if (controls.RIGHT)
@@ -298,26 +289,16 @@ class StoryMenuState extends MusicBeatState
 					diffic = '-easy';
 				case 2:
 					diffic = '-hard';
-				case 3:
-					diffic = '-old';
 			}
 
 			PlayState.storyDifficulty = curDifficulty;
 
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+			PlayState.SONG = Song.loadFromJson(StringTools.replace(PlayState.storyPlaylist[0]," ", "-").toLowerCase() + diffic, StringTools.replace(PlayState.storyPlaylist[0]," ", "-").toLowerCase());
 			PlayState.storyWeek = curWeek;
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{	
-				if (curWeek == 4)
-				{
-					LoadingState.loadAndSwitchState(new VideoState("assets/videos/goomba/goomba.webm", new PlayState()));
-				}	
-				else
-				{
-					LoadingState.loadAndSwitchState(new PlayState());
-				}
-						
+			{
+				LoadingState.loadAndSwitchState(new PlayState(), true);
 			});
 		}
 	}
@@ -325,20 +306,11 @@ class StoryMenuState extends MusicBeatState
 	function changeDifficulty(change:Int = 0):Void
 	{
 		curDifficulty += change;
-		if (curWeek == 1)
-		{
-			if (curDifficulty < 0)
-			curDifficulty = 3;
-			if (curDifficulty > 3)
+
+		if (curDifficulty < 0)
+			curDifficulty = 2;
+		if (curDifficulty > 2)
 			curDifficulty = 0;
-		}
-		else
-		{
-			if (curDifficulty < 0)
-				curDifficulty = 2;
-			if (curDifficulty > 2)
-				curDifficulty = 0;
-		}
 
 		sprDifficulty.offset.x = 0;
 
@@ -352,9 +324,6 @@ class StoryMenuState extends MusicBeatState
 				sprDifficulty.offset.x = 70;
 			case 2:
 				sprDifficulty.animation.play('hard');
-				sprDifficulty.offset.x = 20;
-			case 3:
-				sprDifficulty.animation.play('old');
 				sprDifficulty.offset.x = 20;
 		}
 
@@ -410,14 +379,14 @@ class StoryMenuState extends MusicBeatState
 		var stringThing:Array<String> = weekData[curWeek];
 
 		for (i in stringThing)
-		{
 			txtTracklist.text += "\n" + i;
-		}
 
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
 		txtTracklist.screenCenter(X);
 		txtTracklist.x -= FlxG.width * 0.35;
+
+		txtTracklist.text += "\n";
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(curWeek, curDifficulty);

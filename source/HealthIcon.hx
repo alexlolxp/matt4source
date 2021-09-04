@@ -44,9 +44,17 @@ class HealthIcon extends FlxSprite
 		animation.add('bfmii', [0, 1], 0, false, isPlayer);
 		animation.add('mart', [11, 12], 0, false, isPlayer);
 		animation.add('mattfight', [30, 31], 0, false, isPlayer);
+		animation.add('matttired', [30, 31], 0, false, isPlayer);
 		animation.add('matthurt', [32, 33], 0, false, isPlayer);
 		animation.add('matthurt2', [32, 33], 0, false, isPlayer);
 		animation.play(char);
+
+		switch(char)
+		{
+			case 'bf-pixel' | 'senpai' | 'senpai-angry' | 'spirit' | 'gf-pixel':
+				antialiasing = false;
+		}
+
 		scrollFactor.set();
 	}
 

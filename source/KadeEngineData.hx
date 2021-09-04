@@ -20,14 +20,8 @@ class KadeEngineData
 		if (FlxG.save.data.offset == null)
 			FlxG.save.data.offset = 0;
 
-		if (FlxG.save.data.offset == null)
-			FlxG.save.data.offset = 0;
-
 		if (FlxG.save.data.songPosition == null)
 			FlxG.save.data.songPosition = false;
-
-		if (FlxG.save.data.etternaMode == null)
-			FlxG.save.data.etternaMode = false;
 
 		if (FlxG.save.data.fps == null)
 			FlxG.save.data.fps = false;
@@ -53,6 +47,45 @@ class KadeEngineData
 
 		if (FlxG.save.data.npsDisplay == null)
 			FlxG.save.data.npsDisplay = false;
+
+		if (FlxG.save.data.frames == null)
+			FlxG.save.data.frames = 10;
+
+		if (FlxG.save.data.accuracyMod == null)
+			FlxG.save.data.accuracyMod = 1;
+
+		if (FlxG.save.data.watermark == null)
+			FlxG.save.data.watermark = true;
+
+		if (FlxG.save.data.ghost == null)
+			FlxG.save.data.ghost = true;
+
+		if (FlxG.save.data.distractions == null)
+			FlxG.save.data.distractions = true;
+
+		if (FlxG.save.data.flashing == null)
+			FlxG.save.data.flashing = true;
+
+		if (FlxG.save.data.resetButton == null)
+			FlxG.save.data.resetButton = false;
+		
+		if (FlxG.save.data.botplay == null)
+			FlxG.save.data.botplay = false;
+
+		if (FlxG.save.data.cpuStrums == null)
+			FlxG.save.data.cpuStrums = false;
+
+		if (FlxG.save.data.strumline == null)
+			FlxG.save.data.strumline = false;
+		
+		if (FlxG.save.data.customStrumLine == null)
+			FlxG.save.data.customStrumLine = 0;
+
+		Conductor.recalculateTimings();
+		PlayerSettings.player1.controls.loadKeyBinds();
+		KeyBinds.keyCheck();
+
+		Main.watermarks = FlxG.save.data.watermark;
 
 		(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
 	}
